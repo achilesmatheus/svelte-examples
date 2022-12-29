@@ -4,8 +4,7 @@
 
 <style>
   .container {
-    max-width: 960px;
-    margin: 0 auto;
-    margin-top: 2rem;
+    max-width: 100%;
+    padding-top: 1rem;
   }
 </style>
