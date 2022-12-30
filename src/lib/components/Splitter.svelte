@@ -1,14 +1,12 @@
 <script>
-  import { onMount } from "svelte";
+  /**
+   * Splitter panel. Test only
+   */
 
   let leftContainer, splitter;
 
   let x, y;
   let leftWidth = 0;
-
-  onMount(() => {
-    // leftContainer.style.flex = "1";
-  });
 
   function handleMouseUp() {
     document.removeEventListener("mousemove", handleMove);

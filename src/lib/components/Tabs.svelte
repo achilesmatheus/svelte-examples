@@ -1,7 +1,11 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <script>
+  import CodeBlock from "./CodeBlock/CodeBlock.svelte";
+  import PreviewComponent from "./CodeBlock/PreviewComponent.svelte";
+
   let activeTab = 1;
-  export let tabs = [{}];
+  export let tabs = [];
+  export let Preview;
 
   function handleClick(tab) {
     return () => {
@@ -19,6 +23,11 @@
         class:tab__item-checked={activeTab === index}>{title}</span
       >
     {/each}
+    <span
+      on:click={handleClick(tabs.length + 1)}
+      class="tab__item"
+      class:tab__item-checked={activeTab === tabs.length + 1}>Preview</span
+    >
   </div>
 
   <div class="content">
@@ -27,13 +36,21 @@
         class="content__item"
         class:content__item-active={activeTab === index}
       >
-        <svelte:component this={component} />
+        <CodeBlock {component} />
       </div>
     {/each}
+    <!-- Preview button -->
+    <div
+      class="content__item"
+      class:content__item-active={activeTab === tabs.length + 1}
+    >
+      <PreviewComponent {Preview} />
+    </div>
   </div>
 </div>
 
 <style>
+  /* Tabs */
   .tab {
     display: flex;
     margin: 0 auto;
@@ -52,8 +69,8 @@
   }
 
   .tab__item:last-child {
-    background-color: #ff3e00;
-    color: var(--white);
+    border: 1px solid #ff3e00;
+    color: var(--dark);
     margin-left: auto;
   }
 
@@ -63,6 +80,11 @@
 
   .tab__item-checked {
     background-color: var(--dark);
+    color: var(--white);
+  }
+
+  .tab__item-checked:last-child {
+    background-color: #ff3e00;
     color: var(--white);
   }
 

@@ -1,22 +1,38 @@
 <script>
   export let text = "Texto de exemplo";
   export let icon = "carbon:ibm-watson-speech-to-text";
+  export let href = "/";
+  export let pathname = "/";
 </script>
 
-<iconify-icon
-  class="menu__item"
-  data-title={text}
-  {icon}
-  width="20"
-  height="20"
-/>
+<a {href}>
+  <iconify-icon
+    class="menu__item"
+    class:menu__item-active={href === pathname}
+    data-title={text}
+    {icon}
+    width="20"
+    height="20"
+  />
+</a>
 
 <style>
+  a {
+    color: var(--dark);
+  }
   .menu__item {
     padding: 0.5rem;
     border-radius: 0.2rem;
     cursor: pointer;
     position: relative;
+  }
+
+  .menu__item-active {
+    background-color: var(--light-gray);
+  }
+
+  .menu__item:hover {
+    background-color: var(--light-gray);
   }
 
   .menu__item:after {
@@ -51,9 +67,5 @@
   .menu__item:hover::after,
   *:hover::before {
     display: block;
-  }
-
-  .menu__item:hover {
-    background-color: var(--light-gray);
   }
 </style>
