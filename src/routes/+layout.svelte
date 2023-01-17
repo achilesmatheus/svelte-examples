@@ -1,10 +1,6 @@
-<script>
-  import Layout from "../lib/components/Layout.svelte";
-</script>
-
-<Layout>
+<main>
   <slot />
-</Layout>
+</main>
 
 <style>
   @import "../styles/reset.css";

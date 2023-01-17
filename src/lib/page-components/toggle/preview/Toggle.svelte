@@ -1,15 +1,12 @@
 <script>
-  let user = { loggedIn: false };
-
-  function toggle() {
-    user.loggedIn = !user.loggedIn;
+  let contentShowed = false;
+  function toggleContent() {
+    contentShowed = !contentShowed;
   }
 </script>
 
-{#if user.loggedIn}
-  <button on:click={toggle}> Log out </button>
-{/if}
+<button class="btn" on:click={toggleContent}> Toggle content</button>
 
-{#if !user.loggedIn}
-  <button on:click={toggle}> Log in </button>
+{#if contentShowed}
+  <div class="card">Content</div>
 {/if}

@@ -1,3 +1,4 @@
+import App from "./App.md";
 import Toggle from "./Toggle.md";
 
-export { Toggle };
+export { App, Toggle };

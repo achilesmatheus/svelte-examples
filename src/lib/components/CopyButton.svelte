@@ -1,33 +1,23 @@
 <script>
-  export let component;
-
-  const btnText = "Copiar código";
+  const btnText = "Copy code";
 
   const copyContent = async (element) => {
     const text = element.nextElementSibling.innerText;
     try {
       await navigator.clipboard.writeText(text);
-      element.innerText = "Copiado ✓";
+      element.innerText = "Done ✓";
 
       setTimeout(() => (element.innerText = btnText), 1500);
     } catch (err) {
-      console.error("Não foi possível copiar o conteúdo: ", err);
+      console.error("Error while coping code: ", err);
     }
   };
 </script>
 
-<div class="wrapper">
-  <button class="copy" on:click={(e) => copyContent(e.target)}>{btnText}</button
-  >
-  <svelte:component this={component} />
-</div>
+<button class="copy" on:click={(e) => copyContent(e.target)}>{btnText}</button>
 
 <style>
-  .wrapper {
-    position: relative;
-  }
-
-  .wrapper button.copy {
+  button.copy {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -40,7 +30,7 @@
     border: 1px solid transparent;
   }
 
-  .wrapper button.copy:hover {
+  button.copy:hover {
     background-color: #282c34;
     color: var(--white);
     border-color: var(--white);

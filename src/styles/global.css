@@ -14,7 +14,23 @@ img {
   width: 100%;
 }
 
-button {
+/* Default Preview Styles */
+input[type="text"] {
+  /* box-shadow: rgba(60, 64, 67, 0.15) 0px 2px 2px 0px, #ffffff26 0px 1px 3px 1px; */
+  border: 1px solid var(--dark);
+  border-radius: 0.2rem;
+  margin: 0.5rem auto;
+  width: fit-content;
+  height: 36px;
+  padding: 0 1rem;
+}
+
+label {
+  text-align: center;
+  font-weight: bold;
+}
+
+button.btn {
   border: 1px solid var(--dark);
   padding: 0.5rem;
   cursor: pointer;
@@ -24,25 +40,15 @@ button {
   font-size: 1rem;
 }
 
-button:hover {
+button.btn:hover {
   background-color: var(--light-gray);
   color: var(--dark);
 }
 
-/* ::-webkit-scrollbar-track {
-  background-color: transparent;
+div.card {
+  margin: 0.5rem 0;
+  background-color: var(--white);
+  border-radius: 0.2rem;
+  padding: 1rem;
+  box-shadow: rgba(60, 64, 67, 0.15) 0px 2px 2px 0px, #ffffff26 0px 1px 3px 1px;
 }
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 0.8rem;
-  background-color: #d3d3d3;
-  border-right: 1px solid transparent;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #bbbbbb;
-} */

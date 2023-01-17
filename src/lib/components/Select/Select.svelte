@@ -1,12 +1,21 @@
 <script>
-  import { options } from "./options";
+  import captalize from "$lib/helpers/captalize";
+  import { page } from "$app/stores";
+
+  export let menu;
+  $: selected = $page.url.pathname.split("/")[1];
+  $: menuItems = Object.keys(menu);
 </script>
 
 <div class="wrapper">
-  <label for="code-snippet">Select snippet:</label>
-  <select on:change name="code-snippet">
-    {#each options as { text, value }}
-      <option {value}>{text}</option>
+  <label for="code-snippet">Category:</label>
+  <select
+    bind:value={selected}
+    on:change={() => window.location.replace(`/${selected}`)}
+    name="code-snippet"
+  >
+    {#each menuItems as item}
+      <option value={item}>{captalize(item)}</option>
     {/each}
   </select>
 </div>

@@ -1,13 +1,12 @@
 <script>
   import Card from "../Card.svelte";
   import FloatingMenuItem from "./FloatingMenuItem.svelte";
-  import { menu } from "./menu";
-
   import { page } from "$app/stores";
 
   $: pathname = $page.url.pathname;
 
-  export let selected = "basic";
+  export let menu;
+  $: selected = $page.url.pathname.split("/")[1];
 </script>
 
 {#if selected}
