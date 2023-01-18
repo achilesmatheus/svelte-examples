@@ -11,7 +11,11 @@
   <label for="code-snippet">Category:</label>
   <select
     bind:value={selected}
-    on:change={() => (window.location = `${$page.url.origin}/${selected}`)}
+    on:change={(e) => {
+      e.preventDefault();
+      window.location.href = `${$page.url.origin}/${selected}`;
+      return false;
+    }}
     name="code-snippet"
   >
     {#each menuItems as item}
