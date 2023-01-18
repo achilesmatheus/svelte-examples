@@ -6,7 +6,8 @@
   $: pathname = $page.url.pathname;
 
   export let menu;
-  $: selected = $page.url.pathname.split("/")[1];
+  export let selected = 'basic'
+  // $: selected = $page.url.pathname.split("/")[1];
 </script>
 
 {#if selected}

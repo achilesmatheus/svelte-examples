@@ -3,21 +3,14 @@
   import { page } from "$app/stores";
 
   export let menu;
-  $: selected = $page.url.pathname.split("/")[1];
+  export let selected = "basic";
+  // $: selected = $page.url.pathname.split("/")[1];
   $: menuItems = Object.keys(menu);
 </script>
 
 <div class="wrapper">
   <label for="code-snippet">Category:</label>
-  <select
-    bind:value={selected}
-    on:change={(e) => {
-      e.preventDefault();
-      window.location.href = `${$page.url.origin}/${selected}`;
-      return false;
-    }}
-    name="code-snippet"
-  >
+  <select bind:value={selected} name="code-snippet">
     {#each menuItems as item}
       <option value={item}>{captalize(item)}</option>
     {/each}

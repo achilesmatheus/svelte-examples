@@ -5,14 +5,16 @@
   import { menu } from "$lib/components/FloatingMenu/menu";
 
   let menuData = menu;
+  let selected = "basic";
 </script>
 
 <a href="/">
   <h3>Back to home page</h3>
+  ;
 </a>
 <Layout>
-  <Select menu={menuData} slot="select" />
-  <FloatingMenu menu={menuData} slot="floating-menu" />
+  <Select menu={menuData} bind:selected slot="select" />
+  <FloatingMenu menu={menuData} bind:selected slot="floating-menu" />
   <slot slot="main-content" />
 </Layout>
 
