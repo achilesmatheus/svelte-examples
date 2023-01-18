@@ -11,7 +11,7 @@
   <label for="code-snippet">Category:</label>
   <select
     bind:value={selected}
-    on:change={() => (window.location.href = `${$page.url.origin}/${selected}`)}
+    on:change={() => (window.location = `${$page.url.origin}/${selected}`)}
     name="code-snippet"
   >
     {#each menuItems as item}
