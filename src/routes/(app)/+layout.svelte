@@ -5,7 +5,7 @@
   import { menu } from "$lib/components/FloatingMenu/menu";
 
   let menuData = menu;
-  let selected = "basic";
+  let selected;
 </script>
 
 <a href="/">

@@ -3,8 +3,8 @@
   import { page } from "$app/stores";
 
   export let menu;
-  export let selected = "basic";
-  // $: selected = $page.url.pathname.split("/")[1];
+  // export let selected = "basic";
+  export let selected = $page.url.pathname.split("/")[1];
   $: menuItems = Object.keys(menu);
 </script>
 
